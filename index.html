@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nguyễn Linh Giang • Princess Portfolio 👑✨</title>
+  <meta name="description" content="Hồ sơ năng lực trực tuyến phong cách Công Chúa của Nguyễn Linh Giang - E-commerce Intern & Marketing Communication từ Đại học Ngoại thương (FTU).">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+
+  <!-- Google Fonts Preconnect & Stylesheets (Explicit Vietnamese Subsets) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', '"Montserrat"', 'sans-serif'],
+            serif: ['"Playfair Display"', '"Cormorant Garamond"', 'serif'],
+            royal: ['"Playfair Display"', '"Cormorant Garamond"', 'serif'],
+          },
+          colors: {
+            royal: {
+              50: '#fff5f8',
+              100: '#ffe4ee',
+              200: '#fecddf',
+              300: '#fba5c6',
+              400: '#f472a1',
+              500: '#e83e7c',
+              600: '#d41d60',
+              gold: '#e5b044',
+              goldLight: '#fff3c4',
+              goldDark: '#b8860b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Princess Royal Custom Theme CSS -->
+  <link rel="stylesheet" href="assets/css/princess-theme.css">
+</head>
+<body class="bg-princess-mesh text-gray-800 font-body relative min-h-screen overflow-x-hidden selection:bg-pink-200 selection:text-pink-900">
+
+  <!-- Floating Background Sparkle & Petals Canvas -->
+  <canvas id="sparkle-canvas"></canvas>
+
+  <!-- ========================================== -->
+  <!-- 1. ROYAL KINGDOM NAVIGATION                -->
+  <!-- ========================================== -->
+  <header class="fixed top-3 left-0 right-0 z-40 px-3 md:px-8 max-w-7xl mx-auto">
+    <nav class="bg-white/80 backdrop-blur-xl border border-pink-200/70 shadow-lg shadow-pink-200/30 rounded-full px-4 py-2.5 flex items-center justify-between transition-all duration-300">
+      
+      <!-- Royal Crown Brand -->
+      <a href="#" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-300 via-pink-400 to-rose-500 p-0.5 shadow-md flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+          <div class="w-full h-full bg-white rounded-full flex items-center justify-center text-lg">
+            👑
+          </div>
+        </div>
+        <div>
+          <span class="font-royal-title text-base md:text-lg font-bold text-gray-800 tracking-wider block leading-tight group-hover:text-pink-600 transition-colors">LINH GIANG</span>
+          <span class="font-royal-script text-xs text-amber-700 block -mt-0.5">Princess Realm</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-700">
+        <a href="#about" class="hover:text-pink-600 transition-colors flex items-center gap-1.5" data-i18n="navAbout">
+          <span>🌸</span> Nàng Công Chúa
+        </a>
+        <a href="#skills" class="hover:text-pink-600 transition-colors flex items-center gap-1.5" data-i18n="navSkills">
+          <span>✨</span> Kỹ Năng Hoàng Gia
+        </a>
+        <a href="#experience" class="hover:text-pink-600 transition-colors flex items-center gap-1.5" data-i18n="navExperience">
+          <span>📜</span> Hành Trình Sự Nghiệp
+        </a>
+        <a href="#projects" class="hover:text-pink-600 transition-colors flex items-center gap-1.5" data-i18n="navProjects">
+          <span>💎</span> Dự Án Tiêu Biểu
+        </a>
+        <a href="#languages" class="hover:text-pink-600 transition-colors flex items-center gap-1.5" data-i18n="navLanguages">
+          <span>🌐</span> Ngôn Ngữ
+        </a>
+        <a href="#contact" class="hover:text-pink-600 transition-colors flex items-center gap-1.5" data-i18n="navContact">
+          <span>💌</span> Liên Hệ
+        </a>
+      </div>
+
+      <!-- Action Controls: Audio Box & Language Switcher -->
+      <div class="flex items-center gap-2 md:gap-3">
+
+        <!-- Princess Instrumental Music Box Toggle (Play/Mute) -->
+        <button id="music-toggle-btn" class="flex items-center gap-2 bg-gradient-to-r from-pink-50 to-amber-50 hover:from-pink-100 hover:to-amber-100 border border-pink-200/80 rounded-full px-3 py-1.5 shadow-sm text-xs font-semibold text-pink-900 transition-all hover:scale-105" title="Bật/Tắt Nhạc Hộp Gỗ Hoàng Gia">
+          <div id="audio-waves" class="audio-bars-container audio-muted">
+            <span class="audio-bar bar-1"></span>
+            <span class="audio-bar bar-2"></span>
+            <span class="audio-bar bar-3"></span>
+            <span class="audio-bar bar-4"></span>
+          </div>
+          <span id="music-status-text" class="hidden sm:inline font-medium text-xs text-amber-900" data-i18n="musicStatusMuted">Nhạc Hoàng Gia: Tắt 🌙</span>
+        </button>
+
+        <!-- Bilingual Switcher (VI / EN) -->
+        <button id="lang-toggle-btn" class="flex items-center gap-1.5 bg-white/90 hover:bg-pink-50 border border-pink-200 rounded-full px-2.5 py-1.5 shadow-sm text-xs font-bold text-gray-800 transition-all hover:scale-105">
+          <span id="current-lang-flag">🇻🇳</span>
+          <span id="current-lang-label">VI</span>
+        </button>
+
+        <!-- Quick Contact CTA -->
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-1.5 btn-royal-primary text-xs font-semibold px-4 py-2 rounded-full shadow-md">
+          <span>👑</span>
+          <span data-i18n="btnContact">Gửi Thư Hoàng Gia</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- 2. THE ROYAL COURTYARD (HERO SECTION)      -->
+  <!-- ========================================== -->
+  <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 px-4 max-w-7xl mx-auto flex flex-col items-center text-center">
+    
+    <!-- Royal Welcome Badge -->
+    <div class="inline-flex items-center gap-2 bg-pink-100/90 border border-pink-300/80 px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold text-pink-800 mb-6 shadow-sm animate-royal-glow">
+      <span class="text-base">✨</span>
+      <span data-i18n="heroGreeting">Chào Mừng Đến Với Vương Quốc Sáng Tạo</span>
+      <span class="text-base">✨</span>
+    </div>
+
+    <!-- Princess Portrait with Royal Frame -->
+    <div class="relative mb-8 group">
+      <div class="royal-frame w-44 h-44 md:w-56 md:h-56 mx-auto overflow-hidden rounded-full shadow-2xl relative bg-white">
+        <img id="royal-avatar-img" src="assets/images/princess_avatar.svg" alt="Nguyễn Linh Giang - Princess Portrait" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        
+        <!-- Upload portrait overlay hover button -->
+        <label for="avatar-upload-input" class="absolute inset-0 bg-pink-900/60 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center text-white text-xs font-medium cursor-pointer transition-opacity duration-300 rounded-full p-2">
+          <span class="text-xl mb-1">📸</span>
+          <span>Đổi Chân Dung</span>
+          <span class="text-[10px] text-pink-200">(Click để tải ảnh)</span>
+        </label>
+        <input type="file" id="avatar-upload-input" accept="image/*" class="hidden">
+      </div>
+
+      <!-- Crown Decorator Pin -->
+      <div class="absolute -top-6 left-1/2 -translate-x-1/2 text-4xl md:text-5xl filter drop-shadow-md animate-royal-float pointer-events-none">
+        👑
+      </div>
+    </div>
+
+    <!-- Princess Name & Imperial Monogram -->
+    <h1 class="font-royal-title text-3xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight max-w-4xl mb-3">
+      NGUYỄN <span class="text-gold-gradient">LINH GIANG</span>
+    </h1>
+
+    <p class="font-royal-script text-2xl sm:text-3xl md:text-4xl text-pink-600 mb-4 font-semibold">
+      E-commerce Intern & Creative Marketing Muse
+    </p>
+
+    <!-- Subtitle Role Description -->
+    <div class="max-w-2xl text-sm md:text-base text-gray-700 leading-relaxed mb-8 px-2">
+      <p data-i18n="heroIntro">
+        Là sinh viên Ngoại thương theo học Tiếng Pháp thương mại và Kinh doanh quốc tế, em yêu thích Marketing Communication và có kinh nghiệm thực tế trong tổ chức sự kiện, truyền thông sáng tạo, vận hành sàn thương mại điện tử và chăm sóc khách hàng.
+      </p>
+    </div>
+
+    <!-- Quick Credentials Badges -->
+    <div class="flex flex-wrap justify-center gap-2.5 md:gap-4 mb-9">
+      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/90 border border-amber-200 shadow-sm text-xs md:text-sm font-medium text-amber-900">
+        <span>🏛️</span> <span data-i18n="badgeUniversity">Đại học Ngoại thương (FTU)</span>
+      </span>
+      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/90 border border-pink-200 shadow-sm text-xs md:text-sm font-medium text-pink-800">
+        <span>🌐</span> <span data-i18n="badgeLanguages">3 Ngôn Ngữ (Anh • Pháp • Trung)</span>
+      </span>
+      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/90 border border-purple-200 shadow-sm text-xs md:text-sm font-medium text-purple-900">
+        <span>📜</span> <span data-i18n="badgeMOS">Chứng chỉ MOS Văn Phòng</span>
+      </span>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a href="#contact" class="btn-royal-primary px-7 py-3 rounded-full font-bold text-sm md:text-base flex items-center gap-2 shadow-lg">
+        <span>💌</span>
+        <span data-i18n="btnContact">Gửi Thư Hoàng Gia</span>
+      </a>
+      <a href="javascript:window.print()" class="btn-royal-gold px-7 py-3 rounded-full font-bold text-sm md:text-base flex items-center gap-2 shadow-lg">
+        <span>📜</span>
+        <span data-i18n="btnDownloadCV">Tải Bản Chiếu Hoàng Gia (CV)</span>
+      </a>
+    </div>
+
+    <!-- Royal Stats Ribbon -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 w-full max-w-5xl">
+      <div class="royal-card p-5 rounded-2xl text-center">
+        <div class="text-2xl mb-1">🎓</div>
+        <div class="font-royal-title text-base md:text-lg font-bold text-pink-700" data-i18n="statTitle1">Chuyên Ngành Kép</div>
+        <p class="text-xs text-gray-600 mt-1" data-i18n="statDesc1">Tiếng Pháp Thương Mại & Kinh Doanh Quốc Tế FTU</p>
+      </div>
+
+      <div class="royal-card p-5 rounded-2xl text-center">
+        <div class="text-2xl mb-1">🛍️</div>
+        <div class="font-royal-title text-base md:text-lg font-bold text-amber-700" data-i18n="statTitle2">Kinh Nghiệm Sàn</div>
+        <p class="text-xs text-gray-600 mt-1" data-i18n="statDesc2">Vận hành gian hàng, flash sale & tối ưu doanh số</p>
+      </div>
+
+      <div class="royal-card p-5 rounded-2xl text-center">
+        <div class="text-2xl mb-1">🎨</div>
+        <div class="font-royal-title text-base md:text-lg font-bold text-pink-700" data-i18n="statTitle3">Nghệ Thuật & Media</div>
+        <p class="text-xs text-gray-600 mt-1" data-i18n="statDesc3">Quay dựng, thiết kế Canva, CapCut, AI, Photoshop</p>
+      </div>
+
+      <div class="royal-card p-5 rounded-2xl text-center">
+        <div class="text-2xl mb-1">🌍</div>
+        <div class="font-royal-title text-base md:text-lg font-bold text-amber-700" data-i18n="statTitle4">Đa Ngôn Ngữ</div>
+        <p class="text-xs text-gray-600 mt-1" data-i18n="statDesc4">Tiếng Anh, Tiếng Trung & Tiếng Pháp</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. THE ROYAL DECREE (ABOUT ME & EDUCATION) -->
+  <!-- ========================================== -->
+  <section id="about" class="py-20 px-4 max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-xs font-bold tracking-widest text-amber-700 uppercase bg-amber-100/80 px-3.5 py-1 rounded-full border border-amber-200" data-i18n="aboutTitle">Chiếu Thư Hoàng Gia</span>
+      <h2 class="font-royal-title text-3xl md:text-4xl font-extrabold text-gray-900 mt-3" data-i18n="aboutSubtitle">Về Nàng Công Chúa Nguyễn Linh Giang</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-pink-400 via-amber-400 to-pink-400 mx-auto mt-3 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+      <!-- Royal Scroll Story Card -->
+      <div class="md:col-span-7 royal-card p-6 md:p-8 rounded-3xl relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-pink-200/30 rounded-bl-full pointer-events-none"></div>
+        <div class="text-3xl mb-4">📜</div>
+        <p class="text-gray-700 leading-relaxed text-sm md:text-base mb-4" data-i18n="aboutText1">
+          Là sinh viên Ngoại thương theo học song song Tiếng Pháp thương mại và Kinh doanh quốc tế, em luôn mang trong mình niềm say mê mãnh liệt với Marketing Communication, thẩm mỹ sáng tạo và thế giới sôi động của Thương mại điện tử.
+        </p>
+        <p class="text-gray-700 leading-relaxed text-sm md:text-base mb-6" data-i18n="aboutText2">
+          Em sở hữu kinh nghiệm thực tiễn vững vàng trong việc quản lý gian hàng sàn TMĐT, xử lý đơn hàng, điều phối kho vận cũng như tư vấn chăm sóc khách hàng tận tâm. Bên cạnh đó, các hoạt động dẫn dắt sự kiện và sản xuất media tại CLB Truyền thông Ngoại thương đã rèn luyện tinh thần trách nhiệm, tư duy thẩm mỹ sắc sảo và khả năng phối hợp đội nhóm linh hoạt.
+        </p>
+
+        <!-- Goal Box -->
+        <div class="bg-gradient-to-r from-pink-50 to-amber-50 border-l-4 border-pink-500 p-4 rounded-r-2xl">
+          <div class="font-bold text-xs uppercase tracking-wider text-pink-700 flex items-center gap-1.5 mb-1" data-i18n="aboutGoalTitle">
+            <span>✨</span> Mục Tiêu Vương Quốc
+          </div>
+          <p class="text-xs md:text-sm text-gray-700 italic" data-i18n="aboutGoal">
+            "Mong muốn phát triển trong môi trường năng động, được học hỏi và trau dồi sâu sắc về Marketing Communication, Marketing Event và Thương mại điện tử quốc tế."
+          </p>
+        </div>
+      </div>
+
+      <!-- Education Cards -->
+      <div class="md:col-span-5 flex flex-col gap-5">
+        <div class="royal-card p-6 rounded-3xl border-l-4 border-amber-400">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-xs font-semibold text-amber-700 bg-amber-100 px-2.5 py-0.5 rounded-full">Trường Đại học</span>
+              <h3 class="font-royal-title text-lg font-bold text-gray-900 mt-1">Trường Đại học Ngoại thương</h3>
+              <p class="text-xs text-pink-600 font-medium">Foreign Trade University (FTU)</p>
+            </div>
+            <span class="text-2xl">🏛️</span>
+          </div>
+
+          <div class="mt-4 space-y-3 pt-3 border-t border-pink-100">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center text-sm">🇫🇷</span>
+              <div>
+                <p class="text-xs font-bold text-gray-800">Tiếng Pháp thương mại</p>
+                <p class="text-[11px] text-gray-500">Commercial French Specialization</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-sm">🌐</span>
+              <div>
+                <p class="text-xs font-bold text-gray-800">Kinh doanh quốc tế</p>
+                <p class="text-[11px] text-gray-500">International Business Specialization</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Quick Snippet Card -->
+        <div class="royal-card p-6 rounded-3xl bg-gradient-to-br from-white to-pink-50">
+          <h4 class="font-royal-title text-sm font-bold text-gray-900 mb-3 flex items-center gap-2">
+            <span>👑</span> Thông Tin Hoàng Triều
+          </h4>
+          <ul class="text-xs space-y-2.5 text-gray-600">
+            <li class="flex items-center gap-2">
+              <span class="text-pink-500">📍</span> Nguyễn Khang, Cầu Giấy, Hà Nội
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-pink-500">📞</span> 0993949547
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-pink-500">✉️</span> gianglinh111205@gmail.com
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. ROYAL TREASURY OF TALENTS (SKILLS)      -->
+  <!-- ========================================== -->
+  <section id="skills" class="py-20 px-4 max-w-6xl mx-auto">
+    <div class="text-center mb-14">
+      <span class="text-xs font-bold tracking-widest text-pink-700 uppercase bg-pink-100/80 px-3.5 py-1 rounded-full border border-pink-200" data-i18n="skillsTitle">Kho Tàng Tài Năng</span>
+      <h2 class="font-royal-title text-3xl md:text-4xl font-extrabold text-gray-900 mt-3" data-i18n="skillsSubtitle">Bộ Kỹ Năng Chuyên Môn & Phép Màu</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-pink-400 via-amber-400 to-pink-400 mx-auto mt-3 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- Category 1: Creative & Design -->
+      <div class="royal-card p-6 rounded-3xl flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-200 to-pink-400 flex items-center justify-center text-2xl mb-4 shadow-md">
+            🎨
+          </div>
+          <h3 class="font-royal-title text-base font-bold text-gray-900 mb-3" data-i18n="skillCat1">Sáng Tạo & Đồ Họa Nghệ Thuật</h3>
+          <ul class="space-y-2 text-xs text-gray-700">
+            <li class="flex items-center gap-2">
+              <span class="text-pink-500">✨</span> Thành thạo <strong>Canva, CapCut</strong>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-pink-500">✨</span> Sử dụng cơ bản <strong>Adobe Illustrator, Photoshop</strong>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-pink-500">✨</span> <strong>Chụp ảnh, quay và dựng phim</strong>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-pink-500">✨</span> <strong>Tư duy thẩm mỹ, bố cục tốt</strong>
+            </li>
+          </ul>
+        </div>
+        <div class="mt-5 pt-3 border-t border-pink-100 flex gap-1.5 flex-wrap">
+          <span class="px-2 py-0.5 rounded-full bg-pink-100 text-pink-700 text-[10px] font-semibold">Canva Pro</span>
+          <span class="px-2 py-0.5 rounded-full bg-pink-100 text-pink-700 text-[10px] font-semibold">CapCut Post</span>
+          <span class="px-2 py-0.5 rounded-full bg-pink-100 text-pink-700 text-[10px] font-semibold">Photoshop</span>
+        </div>
+      </div>
+
+      <!-- Category 2: E-Commerce Ops -->
+      <div class="royal-card p-6 rounded-3xl flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-200 to-amber-400 flex items-center justify-center text-2xl mb-4 shadow-md">
+            🛍️
+          </div>
+          <h3 class="font-royal-title text-base font-bold text-gray-900 mb-3" data-i18n="skillCat2">TMĐT & Vận Hành Gian Hàng</h3>
+          <ul class="space-y-2 text-xs text-gray-700">
+            <li class="flex items-center gap-2">
+              <span class="text-amber-500">👑</span> <strong>Vận hành gian hàng</strong> trên sàn TMĐT
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-amber-500">👑</span> <strong>Xử lý đơn hàng</strong>, đóng gói, theo dõi giao nhận
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-amber-500">👑</span> <strong>Quản lý kho và tồn kho</strong> định kỳ
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-amber-500">👑</span> <strong>Tư vấn & Chăm sóc khách hàng</strong> đa kênh
+            </li>
+          </ul>
+        </div>
+        <div class="mt-5 pt-3 border-t border-amber-100 flex gap-1.5 flex-wrap">
+          <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-semibold">Shopee / Lazada</span>
+          <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-semibold">Flash Sale</span>
+          <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-semibold">Fulfillment</span>
+        </div>
+      </div>
+
+      <!-- Category 3: Events & Marketing Communication -->
+      <div class="royal-card p-6 rounded-3xl flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-200 to-purple-400 flex items-center justify-center text-2xl mb-4 shadow-md">
+            🎪
+          </div>
+          <h3 class="font-royal-title text-base font-bold text-gray-900 mb-3" data-i18n="skillCat3">Sự Kiện & Marketing Communication</h3>
+          <ul class="space-y-2 text-xs text-gray-700">
+            <li class="flex items-center gap-2">
+              <span class="text-purple-500">🔮</span> <strong>Kỹ năng Content</strong> & Storytelling
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-purple-500">🔮</span> <strong>Tổ chức sự kiện</strong> quy mô trường lớp & CLB
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-purple-500">🔮</span> <strong>Lập kế hoạch & Timeline</strong> truyền thông
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-purple-500">🔮</span> <strong>Khảo sát insight</strong> & kịch bản tương tác
+            </li>
+          </ul>
+        </div>
+        <div class="mt-5 pt-3 border-t border-purple-100 flex gap-1.5 flex-wrap">
+          <span class="px-2 py-0.5 rounded-full bg-purple-100 text-purple-800 text-[10px] font-semibold">MarCom</span>
+          <span class="px-2 py-0.5 rounded-full bg-purple-100 text-purple-800 text-[10px] font-semibold">Event Lead</span>
+          <span class="px-2 py-0.5 rounded-full bg-purple-100 text-purple-800 text-[10px] font-semibold">Insight Focus</span>
+        </div>
+      </div>
+
+      <!-- Category 4: Professional Office & Soft Skills -->
+      <div class="royal-card p-6 rounded-3xl flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-200 to-rose-400 flex items-center justify-center text-2xl mb-4 shadow-md">
+            💼
+          </div>
+          <h3 class="font-royal-title text-base font-bold text-gray-900 mb-3" data-i18n="skillCat4">Công Cụ Chuyên Nghiệp & Kỹ Năng Mềm</h3>
+          <ul class="space-y-2 text-xs text-gray-700">
+            <li class="flex items-center gap-2">
+              <span class="text-rose-500">💎</span> Thành thạo văn phòng <strong>(Chứng chỉ MOS)</strong>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-rose-500">💎</span> <strong>Giao tiếp & Đàm phán</strong> khéo léo
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-rose-500">💎</span> <strong>Làm việc nhóm & Độc lập</strong> linh hoạt
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-rose-500">💎</span> <strong>Quản lý ngân sách</strong>, dự trù thu - chi
+            </li>
+          </ul>
+        </div>
+        <div class="mt-5 pt-3 border-t border-rose-100 flex gap-1.5 flex-wrap">
+          <span class="px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 text-[10px] font-semibold">MOS Word/Excel</span>
+          <span class="px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 text-[10px] font-semibold">Budget Control</span>
+          <span class="px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 text-[10px] font-semibold">Teamwork</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 5. THE ROYAL CHRONICLE (EXPERIENCE)        -->
+  <!-- ========================================== -->
+  <section id="experience" class="py-20 px-4 max-w-5xl mx-auto">
+    <div class="text-center mb-14">
+      <span class="text-xs font-bold tracking-widest text-amber-700 uppercase bg-amber-100/80 px-3.5 py-1 rounded-full border border-amber-200" data-i18n="expTitle">Biên Niên Sử Hoàng Gia</span>
+      <h2 class="font-royal-title text-3xl md:text-4xl font-extrabold text-gray-900 mt-3" data-i18n="expSubtitle">Hành Trình Tích Lũy Kinh Nghiệm & Cống Hiến</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-pink-400 via-amber-400 to-pink-400 mx-auto mt-3 rounded-full"></div>
+    </div>
+
+    <!-- Timeline Wrapper -->
+    <div class="relative space-y-8">
+      <div class="timeline-stem"></div>
+
+      <!-- Milestone 1: E-commerce Operations -->
+      <div class="relative flex flex-col md:flex-row items-center gap-6 group">
+        <!-- Badge Pin -->
+        <div class="hidden md:flex w-12 h-12 rounded-full bg-white border-2 border-amber-400 shadow-md items-center justify-center text-lg z-10 mx-auto group-hover:scale-125 transition-transform duration-300">
+          🛍️
+        </div>
+
+        <div class="royal-card p-6 md:p-8 rounded-3xl w-full md:w-[calc(50%-2rem)] md:ml-auto">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-xs font-bold" data-i18n="expTime1">02/2026 – 09/2026</span>
+            <span class="text-xs text-amber-700 font-semibold" data-i18n="expOrg1">Sàn thương mại điện tử</span>
+          </div>
+          <h3 class="font-royal-title text-lg md:text-xl font-bold text-gray-900" data-i18n="expRole1">Nhân viên Vận hành Sàn Thương mại điện tử</h3>
+          
+          <ul class="mt-4 space-y-2 text-xs md:text-sm text-gray-700">
+            <li class="flex items-start gap-2">
+              <span class="text-pink-500 font-bold">•</span>
+              <span><strong>Quản lý gian hàng trên sàn:</strong> đăng tải, cập nhật và tối ưu thông tin, hình ảnh, mô tả sản phẩm.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-pink-500 font-bold">•</span>
+              <span><strong>Xử lý đơn hàng:</strong> theo dõi giao nhận và giải quyết các vấn đề phát sinh như đổi trả, hoàn tiền.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-pink-500 font-bold">•</span>
+              <span><strong>Tư vấn, chăm sóc khách hàng:</strong> qua kênh chat và phản hồi đánh giá để nâng cao chất lượng gian hàng.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-pink-500 font-bold">•</span>
+              <span><strong>Chiến dịch bán hàng:</strong> tham gia triển khai khuyến mãi, voucher, flash sale và theo dõi báo cáo doanh số.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Milestone 2: Sales Assistant & Warehouse Executive (IM FINE) -->
+      <div class="relative flex flex-col md:flex-row items-center gap-6 group">
+        <!-- Badge Pin -->
+        <div class="hidden md:flex w-12 h-12 rounded-full bg-white border-2 border-pink-400 shadow-md items-center justify-center text-lg z-10 mx-auto group-hover:scale-125 transition-transform duration-300">
+          📦
+        </div>
+
+        <div class="royal-card p-6 md:p-8 rounded-3xl w-full md:w-[calc(50%-2rem)] md:mr-auto">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-bold" data-i18n="expTime2">09/2025 – 01/2026</span>
+            <span class="text-xs text-pink-700 font-semibold" data-i18n="expOrg2">IM FINE</span>
+          </div>
+          <h3 class="font-royal-title text-lg md:text-xl font-bold text-gray-900" data-i18n="expRole2">Sales Assistant & Warehouse Operations Executive</h3>
+
+          <!-- Role Subsections -->
+          <div class="mt-4 space-y-4">
+            <div>
+              <p class="text-xs font-bold text-pink-600 uppercase tracking-wider mb-1">Sales Assistant:</p>
+              <ul class="space-y-1.5 text-xs text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-pink-500 font-bold">•</span>
+                  <span>Tư vấn sản phẩm, giải đáp thắc mắc và chăm sóc khách hàng sau mua.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-pink-500 font-bold">•</span>
+                  <span>Tiếp nhận, xử lý đơn hàng; theo dõi tình trạng giao hàng và thanh toán.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-pink-500 font-bold">•</span>
+                  <span>Làm việc trực tiếp với đơn vị vận chuyển để xử lý sự cố trong quá trình giao nhận.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-2 border-t border-pink-100">
+              <p class="text-xs font-bold text-amber-700 uppercase tracking-wider mb-1">Warehouse Operations Executive:</p>
+              <ul class="space-y-1.5 text-xs text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-500 font-bold">•</span>
+                  <span>Kiểm soát số lượng nhập - xuất kho, đảm bảo số liệu khớp giữa thực tế và hệ thống.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-500 font-bold">•</span>
+                  <span>Theo dõi, cập nhật nhập – xuất – tồn hàng tuần và lập báo cáo tồn kho định kỳ.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-500 font-bold">•</span>
+                  <span>Kiểm kê định kỳ & đột xuất; bảo quản hàng hóa khoa học theo hạn sử dụng.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestone 3: FTU Media Club Leader -->
+      <div class="relative flex flex-col md:flex-row items-center gap-6 group">
+        <!-- Badge Pin -->
+        <div class="hidden md:flex w-12 h-12 rounded-full bg-white border-2 border-purple-400 shadow-md items-center justify-center text-lg z-10 mx-auto group-hover:scale-125 transition-transform duration-300">
+          🎪
+        </div>
+
+        <div class="royal-card p-6 md:p-8 rounded-3xl w-full md:w-[calc(50%-2rem)] md:ml-auto">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-bold" data-i18n="expTime3">11/2023 – 12/2024</span>
+            <span class="text-xs text-gray-600 font-semibold" data-i18n="expOrg3">CLB Truyền thông ĐH Ngoại thương</span>
+          </div>
+          <h3 class="font-royal-title text-lg md:text-xl font-bold text-gray-900" data-i18n="expRole3">Thành viên Ban Tổ chức • Leader Hậu cần & Truyền thông</h3>
+
+          <div class="mt-4 space-y-3 text-xs md:text-sm text-gray-700">
+            <div>
+              <p class="text-xs font-bold text-purple-700 uppercase tracking-wider mb-1">Team Sự kiện & Trưởng ban Hậu cần:</p>
+              <p class="text-xs text-gray-600">
+                Xây dựng khung chương trình sự kiện, lập checklist kỹ thuật/vận hành, làm việc trực tiếp với khách mời. Khảo sát địa điểm, lập dự trù chi phí và quyết toán thu chi chuỗi sự kiện tuyển thành viên.
+              </p>
+            </div>
+            <div class="pt-2 border-t border-purple-100">
+              <p class="text-xs font-bold text-pink-600 uppercase tracking-wider mb-1">Team Truyền thông nội bộ:</p>
+              <p class="text-xs text-gray-600">
+                Nghiên cứu insight người xem, lên kế hoạch và timeline truyền thông; trực tiếp quay/dựng video và thiết kế ấn phẩm đồ họa trên Canva & CapCut.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 6. THE ROYAL JEWELS (PROJECT SHOWCASE)     -->
+  <!-- ========================================== -->
+  <section id="projects" class="py-20 px-4 max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-xs font-bold tracking-widest text-pink-700 uppercase bg-pink-100/80 px-3.5 py-1 rounded-full border border-pink-200" data-i18n="projectsTitle">Bảo Ngọc Tiêu Biểu</span>
+      <h2 class="font-royal-title text-3xl md:text-4xl font-extrabold text-gray-900 mt-3" data-i18n="projectsSubtitle">Các Dự Án & Dấu Ấn Vận Hành Nổi Bật</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-pink-400 via-amber-400 to-pink-400 mx-auto mt-3 rounded-full"></div>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="flex flex-wrap justify-center gap-2.5 mb-10">
+      <button class="filter-btn active btn-royal-primary px-4 py-2 rounded-full text-xs font-bold shadow-sm transition-all" data-filter="all" data-i18n="filterAll">Tất Cả</button>
+      <button class="filter-btn bg-white/80 text-gray-700 hover:bg-pink-100 px-4 py-2 rounded-full text-xs font-bold shadow-sm border border-pink-200 transition-all" data-filter="ecom" data-i18n="filterEcommerce">Vận Hành TMĐT</button>
+      <button class="filter-btn bg-white/80 text-gray-700 hover:bg-pink-100 px-4 py-2 rounded-full text-xs font-bold shadow-sm border border-pink-200 transition-all" data-filter="media" data-i18n="filterMedia">Nội Dung & Media</button>
+      <button class="filter-btn bg-white/80 text-gray-700 hover:bg-pink-100 px-4 py-2 rounded-full text-xs font-bold shadow-sm border border-pink-200 transition-all" data-filter="event" data-i18n="filterEvent">Tổ Chức Sự Kiện</button>
+    </div>
+
+    <!-- Project Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-7">
+      
+      <!-- Card 1 -->
+      <div class="project-card royal-card rounded-3xl p-6 cursor-pointer group" data-category="ecom" data-project-id="ecom1">
+        <div class="flex items-center justify-between mb-3">
+          <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full">E-Commerce Ops</span>
+          <span class="text-xl group-hover:scale-125 transition-transform duration-300">🛍️</span>
+        </div>
+        <h3 class="font-royal-title text-base md:text-lg font-bold text-gray-900 group-hover:text-pink-600 transition-colors">
+          Tối Ưu Gian Hàng & Chiến Dịch Flash Sale Sàn TMĐT
+        </h3>
+        <p class="text-xs md:text-sm text-gray-600 mt-2 line-clamp-3">
+          Quản trị catalog 150+ SKU, tối ưu hình ảnh mô tả chuẩn SEO, chạy flash sale doanh số bứt phá và nâng chỉ số hài lòng lên 4.9/5 sao.
+        </p>
+        <div class="mt-4 pt-3 border-t border-pink-100 flex items-center justify-between text-xs text-pink-600 font-semibold">
+          <span>Xem chi tiết hồ sơ</span>
+          <span class="group-hover:translate-x-1 transition-transform">→</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="project-card royal-card rounded-3xl p-6 cursor-pointer group" data-category="ecom" data-project-id="ecom2">
+        <div class="flex items-center justify-between mb-3">
+          <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full">Warehouse Control</span>
+          <span class="text-xl group-hover:scale-125 transition-transform duration-300">📦</span>
+        </div>
+        <h3 class="font-royal-title text-base md:text-lg font-bold text-gray-900 group-hover:text-pink-600 transition-colors">
+          Hệ Thống Kho Vận & Kiểm Kê Xuất Nhập Tồn IM FINE
+        </h3>
+        <p class="text-xs md:text-sm text-gray-600 mt-2 line-clamp-3">
+          Đồng bộ tồn kho thực tế và hệ thống, kết nối mượt mà với GHN, GHTK, Viettel Post; độ chuẩn xác kiểm kê đạt 99.4%.
+        </p>
+        <div class="mt-4 pt-3 border-t border-pink-100 flex items-center justify-between text-xs text-pink-600 font-semibold">
+          <span>Xem chi tiết hồ sơ</span>
+          <span class="group-hover:translate-x-1 transition-transform">→</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="project-card royal-card rounded-3xl p-6 cursor-pointer group" data-category="media" data-project-id="media1">
+        <div class="flex items-center justify-between mb-3">
+          <span class="px-3 py-1 bg-pink-100 text-pink-700 text-xs font-bold rounded-full">Creative Video & Graphics</span>
+          <span class="text-xl group-hover:scale-125 transition-transform duration-300">🎬</span>
+        </div>
+        <h3 class="font-royal-title text-base md:text-lg font-bold text-gray-900 group-hover:text-pink-600 transition-colors">
+          Chuỗi Video Truyền Thông Tuyển Thành Viên CLB Ngoại Thương
+        </h3>
+        <p class="text-xs md:text-sm text-gray-600 mt-2 line-clamp-3">
+          Nghiên cứu insight sinh viên, trực tiếp lên kịch bản, quay và dựng video CapCut/Premiere đạt 50,000+ views cùng 300+ đơn ứng tuyển.
+        </p>
+        <div class="mt-4 pt-3 border-t border-pink-100 flex items-center justify-between text-xs text-pink-600 font-semibold">
+          <span>Xem chi tiết hồ sơ</span>
+          <span class="group-hover:translate-x-1 transition-transform">→</span>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="project-card royal-card rounded-3xl p-6 cursor-pointer group" data-category="event" data-project-id="event1">
+        <div class="flex items-center justify-between mb-3">
+          <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded-full">Event Logistics</span>
+          <span class="text-xl group-hover:scale-125 transition-transform duration-300">🎪</span>
+        </div>
+        <h3 class="font-royal-title text-base md:text-lg font-bold text-gray-900 group-hover:text-pink-600 transition-colors">
+          Điều Phối Hậu Cần & Trải Nghiệm Khách Mời Chuỗi Sự Kiện FTU
+        </h3>
+        <p class="text-xs md:text-sm text-gray-600 mt-2 line-clamp-3">
+          Lãnh đạo ban hậu cần, tối ưu chi phí 15%, điều phối vận hành trơn tru cho sự kiện quy mô hơn 500+ sinh viên FTU tham gia.
+        </p>
+        <div class="mt-4 pt-3 border-t border-pink-100 flex items-center justify-between text-xs text-pink-600 font-semibold">
+          <span>Xem chi tiết hồ sơ</span>
+          <span class="group-hover:translate-x-1 transition-transform">→</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 7. COURT OF TONGUES (LANGUAGES)            -->
+  <!-- ========================================== -->
+  <section id="languages" class="py-16 px-4 max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-xs font-bold tracking-widest text-amber-700 uppercase bg-amber-100/80 px-3.5 py-1 rounded-full border border-amber-200" data-i18n="langTitle">Ngôn Ngữ Vương Triều</span>
+      <h2 class="font-royal-title text-2xl md:text-3xl font-extrabold text-gray-900 mt-3" data-i18n="langSubtitle">Cầu Nối Văn Hóa & Kinh Doanh Toàn Cầu</h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-pink-400 via-amber-400 to-pink-400 mx-auto mt-3 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- French -->
+      <div class="royal-card p-6 rounded-3xl text-center">
+        <div class="text-4xl mb-2">🇫🇷</div>
+        <h3 class="font-royal-title font-bold text-base text-gray-900" data-i18n="langFr">Tiếng Pháp (French)</h3>
+        <p class="text-xs text-pink-600 font-semibold mt-1" data-i18n="langFrLevel">Chuyên ngành Tiếng Pháp thương mại FTU</p>
+        <div class="w-full bg-pink-100 h-1.5 rounded-full mt-4 overflow-hidden">
+          <div class="bg-gradient-to-r from-pink-400 to-rose-500 h-full w-[88%] rounded-full"></div>
+        </div>
+      </div>
+
+      <!-- English -->
+      <div class="royal-card p-6 rounded-3xl text-center">
+        <div class="text-4xl mb-2">🇬🇧</div>
+        <h3 class="font-royal-title font-bold text-base text-gray-900" data-i18n="langEn">Tiếng Anh (English)</h3>
+        <p class="text-xs text-amber-700 font-semibold mt-1" data-i18n="langEnLevel">Giao tiếp thành thạo, làm việc chuyên nghiệp</p>
+        <div class="w-full bg-amber-100 h-1.5 rounded-full mt-4 overflow-hidden">
+          <div class="bg-gradient-to-r from-amber-400 to-yellow-500 h-full w-[85%] rounded-full"></div>
+        </div>
+      </div>
+
+      <!-- Chinese -->
+      <div class="royal-card p-6 rounded-3xl text-center">
+        <div class="text-4xl mb-2">🇨🇳</div>
+        <h3 class="font-royal-title font-bold text-base text-gray-900" data-i18n="langZh">Tiếng Trung (Chinese)</h3>
+        <p class="text-xs text-purple-700 font-semibold mt-1" data-i18n="langZhLevel">Giao tiếp thương mại, đọc hiểu tốt</p>
+        <div class="w-full bg-purple-100 h-1.5 rounded-full mt-4 overflow-hidden">
+          <div class="bg-gradient-to-r from-purple-400 to-indigo-500 h-full w-[70%] rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 8. THE ROYAL COURIER (CONTACT SECTION)     -->
+  <!-- ========================================== -->
+  <section id="contact" class="py-20 px-4 max-w-5xl mx-auto">
+    <div class="royal-card p-8 md:p-12 rounded-[2.5rem] relative overflow-hidden border-2 border-amber-200/80 shadow-2xl">
+      
+      <!-- Wax Seal Decoration -->
+      <div class="absolute -top-7 -right-7 wax-seal w-28 h-28 text-amber-200 text-3xl font-royal-title font-bold shadow-xl rotate-12">
+        👑
+      </div>
+
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold tracking-widest text-pink-700 uppercase bg-pink-100/90 px-3.5 py-1 rounded-full border border-pink-200" data-i18n="contactTitle">Bồ Câu Đưa Thư Hoàng Gia</span>
+        <h2 class="font-royal-title text-3xl md:text-4xl font-extrabold text-gray-900 mt-3" data-i18n="contactSubtitle">Sẵn Sàng Đồng Hành Cùng Quý Doanh Nghiệp</h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-pink-400 via-amber-400 to-pink-400 mx-auto mt-3 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        <!-- Direct Channels with Copy Triggers -->
+        <div class="md:col-span-5 space-y-4">
+          <!-- Phone -->
+          <div class="p-4 rounded-2xl bg-white/90 border border-pink-200 flex items-center justify-between group hover:border-amber-400 transition-colors">
+            <div class="flex items-center gap-3">
+              <span class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-lg">📞</span>
+              <div>
+                <p class="text-[11px] text-gray-500 uppercase font-semibold" data-i18n="contactPhoneLabel">Số Điện Thoại</p>
+                <a href="tel:0993949547" class="text-sm font-bold text-gray-900 hover:text-pink-600 transition-colors">0993949547</a>
+              </div>
+            </div>
+            <button class="copy-trigger text-xs bg-pink-50 hover:bg-pink-100 text-pink-700 px-3 py-1.5 rounded-full font-medium transition-colors" data-copy="0993949547" title="Sao chép">
+              📋 Sao chép
+            </button>
+          </div>
+
+          <!-- Email -->
+          <div class="p-4 rounded-2xl bg-white/90 border border-pink-200 flex items-center justify-between group hover:border-amber-400 transition-colors">
+            <div class="flex items-center gap-3">
+              <span class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-lg">✉️</span>
+              <div>
+                <p class="text-[11px] text-gray-500 uppercase font-semibold" data-i18n="contactEmailLabel">Hòm Thư Điện Tử</p>
+                <a href="mailto:gianglinh111205@gmail.com" class="text-xs md:text-sm font-bold text-gray-900 hover:text-pink-600 transition-colors break-all">gianglinh111205@gmail.com</a>
+              </div>
+            </div>
+            <button class="copy-trigger text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 px-3 py-1.5 rounded-full font-medium transition-colors" data-copy="gianglinh111205@gmail.com" title="Sao chép">
+              📋 Sao chép
+            </button>
+          </div>
+
+          <!-- Address -->
+          <div class="p-4 rounded-2xl bg-white/90 border border-pink-200 flex items-center justify-between group hover:border-amber-400 transition-colors">
+            <div class="flex items-center gap-3">
+              <span class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-lg">🏰</span>
+              <div>
+                <p class="text-[11px] text-gray-500 uppercase font-semibold" data-i18n="contactAddressLabel">Địa Chỉ Hiện Tại</p>
+                <p class="text-xs md:text-sm font-bold text-gray-900">Nguyễn Khang, Cầu Giấy, Hà Nội</p>
+              </div>
+            </div>
+            <button class="copy-trigger text-xs bg-purple-50 hover:bg-purple-100 text-purple-700 px-3 py-1.5 rounded-full font-medium transition-colors" data-copy="Nguyễn Khang, Cầu Giấy, Hà Nội" title="Sao chép">
+              📋 Sao chép
+            </button>
+          </div>
+        </div>
+
+        <!-- Interactive Dispatch Form -->
+        <div class="md:col-span-7 bg-white/90 p-6 rounded-3xl border border-pink-200">
+          <form id="royal-contact-form" class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1" data-i18n="contactFormName">Tên Của Quý Vị</label>
+              <input type="text" required placeholder="Họ tên hoặc Doanh nghiệp..." class="w-full px-4 py-2.5 rounded-xl border border-pink-200 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 outline-none text-sm transition-all">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1" data-i18n="contactFormEmail">Email Liên Hệ</label>
+              <input type="email" required placeholder="dia-chi-email@example.com" class="w-full px-4 py-2.5 rounded-xl border border-pink-200 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 outline-none text-sm transition-all">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1" data-i18n="contactFormMsg">Nội Dung Thư Gửi Công Chúa Linh Giang...</label>
+              <textarea rows="3" required placeholder="Chia sẻ cơ hội hợp tác, vị trí tuyển dụng hoặc lời chào..." class="w-full px-4 py-2.5 rounded-xl border border-pink-200 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 outline-none text-sm transition-all"></textarea>
+            </div>
+
+            <button type="submit" class="w-full btn-royal-primary py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-md">
+              <span data-i18n="btnSendMsg">Niêm Phong & Gửi Thư 👑</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 9. ROYAL FOOTER                            -->
+  <!-- ========================================== -->
+  <footer class="py-10 text-center text-xs text-gray-500 border-t border-pink-200/50">
+    <div class="flex items-center justify-center gap-2 mb-2">
+      <span class="text-xl">👑</span>
+      <span class="font-royal-title font-bold text-gray-800 text-sm tracking-widest">NGUYỄN LINH GIANG</span>
+      <span class="text-xl">✨</span>
+    </div>
+    <p>Foreign Trade University (FTU) • E-commerce & Marketing Communication</p>
+    <p class="mt-1 text-[11px] text-pink-500 font-royal-script text-base">Designed with Princess Elegance & Royal Charm</p>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- MODAL: PROJECT DETAILS VIEWER              -->
+  <!-- ========================================== -->
+  <div id="project-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="royal-card max-w-xl w-full p-6 md:p-8 rounded-3xl relative animate-royal-glow bg-white">
+      <button id="modal-close-btn" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-pink-100 hover:bg-pink-200 text-pink-800 flex items-center justify-center text-sm font-bold transition-colors">
+        ✕
+      </button>
+
+      <span id="modal-category" class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full inline-block mb-3">
+        E-Commerce
+      </span>
+      <h3 id="modal-title" class="font-royal-title text-xl font-bold text-gray-900 mb-3">
+        Project Title
+      </h3>
+      <p id="modal-desc" class="text-xs md:text-sm text-gray-700 leading-relaxed mb-4">
+        Project description...
+      </p>
+
+      <div class="mb-4">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-pink-700 mb-2">Dấu Ấn Đạt Được (Highlights):</h4>
+        <ul id="modal-highlights" class="space-y-2"></ul>
+      </div>
+
+      <div id="modal-tags" class="flex flex-wrap gap-1.5 pt-3 border-t border-pink-100"></div>
+    </div>
+  </div>
+
+  <!-- JavaScript Magic -->
+  <script src="assets/js/princess-magic.js"></script>
+</body>
+</html>

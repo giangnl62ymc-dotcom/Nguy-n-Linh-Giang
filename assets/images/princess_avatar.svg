@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff1f5" />
+      <stop offset="50%" stop-color="#fce7f3" />
+      <stop offset="100%" stop-color="#fed7aa" />
+    </linearGradient>
+
+    <!-- Gold Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="45%" stop-color="#eab308" />
+      <stop offset="70%" stop-color="#ca8a04" />
+      <stop offset="100%" stop-color="#854d0e" />
+    </linearGradient>
+
+    <!-- Dress Gradient -->
+    <linearGradient id="dressGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f472b6" />
+      <stop offset="60%" stop-color="#db2777" />
+      <stop offset="100%" stop-color="#9d174d" />
+    </linearGradient>
+
+    <!-- Skin Gradient -->
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff1ee" />
+      <stop offset="100%" stop-color="#fcd5ce" />
+    </linearGradient>
+
+    <!-- Hair Gradient -->
+    <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#372727" />
+      <stop offset="100%" stop-color="#1f1818" />
+    </linearGradient>
+  </defs>
+
+  <!-- Circular Base -->
+  <circle cx="200" cy="200" r="195" fill="url(#bgGrad)" stroke="url(#goldGrad)" stroke-width="6" />
+
+  <!-- Soft Halo -->
+  <circle cx="200" cy="200" r="170" fill="none" stroke="rgba(255, 255, 255, 0.7)" stroke-width="2" stroke-dasharray="6,4" />
+
+  <!-- Floating Sparkles in Background -->
+  <path d="M 80,100 Q 80,115 65,115 Q 80,115 80,130 Q 80,115 95,115 Q 80,115 80,100 Z" fill="#eab308" opacity="0.8" />
+  <path d="M 320,120 Q 320,135 305,135 Q 320,135 320,150 Q 320,135 335,135 Q 320,135 320,120 Z" fill="#eab308" opacity="0.8" />
+  <path d="M 70,260 Q 70,270 60,270 Q 70,270 70,280 Q 70,270 80,270 Q 70,270 70,260 Z" fill="#f472b6" opacity="0.7" />
+  <path d="M 330,250 Q 330,260 320,260 Q 330,260 330,270 Q 330,260 340,260 Q 330,260 330,250 Z" fill="#f472b6" opacity="0.7" />
+
+  <!-- Shoulders & Royal Dress -->
+  <path d="M 110,380 Q 150,300 200,300 Q 250,300 290,380 Z" fill="url(#dressGrad)" />
+  <!-- Dress Lace & Gold Trim -->
+  <path d="M 140,325 Q 200,350 260,325" fill="none" stroke="url(#goldGrad)" stroke-width="4" />
+  <circle cx="200" cy="337" r="6" fill="#f43f5e" stroke="url(#goldGrad)" stroke-width="2" />
+
+  <!-- Neck & Collarbone -->
+  <path d="M 180,250 L 180,290 Q 200,300 220,290 L 220,250 Z" fill="url(#skinGrad)" />
+  <!-- Pearl Necklace -->
+  <path d="M 175,275 Q 200,292 225,275" fill="none" stroke="#ffffff" stroke-width="4" stroke-dasharray="5,6" stroke-linecap="round" />
+
+  <!-- Back Hair -->
+  <path d="M 130,170 Q 110,250 140,340 Q 200,360 260,340 Q 290,250 270,170 Z" fill="url(#hairGrad)" />
+
+  <!-- Face -->
+  <path d="M 145,170 Q 140,240 200,265 Q 260,240 255,170 Q 255,125 200,125 Q 145,125 145,170 Z" fill="url(#skinGrad)" />
+
+  <!-- Blush -->
+  <ellipse cx="165" cy="205" rx="14" ry="7" fill="#fb7185" opacity="0.45" />
+  <ellipse cx="235" cy="205" rx="14" ry="7" fill="#fb7185" opacity="0.45" />
+
+  <!-- Gentle Eyes -->
+  <path d="M 160,185 Q 172,176 182,185" fill="none" stroke="#262626" stroke-width="3" stroke-linecap="round" />
+  <path d="M 218,185 Q 228,176 240,185" fill="none" stroke="#262626" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Eyelashes -->
+  <path d="M 182,184 L 187,180" stroke="#262626" stroke-width="2" stroke-linecap="round" />
+  <path d="M 218,184 L 213,180" stroke="#262626" stroke-width="2" stroke-linecap="round" />
+
+  <!-- Gentle Royal Smile -->
+  <path d="M 188,228 Q 200,238 212,228" fill="none" stroke="#e11d48" stroke-width="3" stroke-linecap="round" />
+  <path d="M 189,228 Q 200,234 211,228" fill="#fda4af" />
+
+  <!-- Front Hair & Bangs -->
+  <path d="M 145,160 Q 155,120 200,120 Q 245,120 255,160 Q 240,140 200,140 Q 160,140 145,160 Z" fill="url(#hairGrad)" />
+  <path d="M 145,160 Q 135,210 150,240 Q 145,190 155,160 Z" fill="url(#hairGrad)" />
+  <path d="M 255,160 Q 265,210 250,240 Q 255,190 245,160 Z" fill="url(#hairGrad)" />
+
+  <!-- Princess Royal Tiara -->
+  <path d="M 165,128 L 170,95 L 185,115 L 200,80 L 215,115 L 230,95 L 235,128 Z" fill="url(#goldGrad)" stroke="#b45309" stroke-width="1.5" />
+  <!-- Tiara Jewels -->
+  <circle cx="200" cy="95" r="4.5" fill="#f43f5e" stroke="#fff" stroke-width="1" />
+  <circle cx="173" cy="106" r="3" fill="#38bdf8" stroke="#fff" stroke-width="0.8" />
+  <circle cx="227" cy="106" r="3" fill="#38bdf8" stroke="#fff" stroke-width="0.8" />
+  <circle cx="200" cy="120" r="3" fill="#fef08a" />
+</svg>
